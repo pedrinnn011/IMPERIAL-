@@ -3,119 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - Guilda Imperial</title>
+  <title>Guilda Imperial - Início</title>
   <style>
     body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #0d0d0d;
       color: #f0f0f0;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-    }
-
-    .container {
-      background-color: #220033; /* roxo escuro */
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(127, 0, 255, 0.5), 0 0 10px rgba(255, 215, 0, 0.3);
-      width: 90%;
-      max-width: 400px;
-      border: 2px solid #7f00ff;
-    }
-
-    h2 {
       text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
       color: #ffd700;
-      margin-bottom: 20px;
+      font-size: 2em;
+      margin-bottom: 10px;
     }
 
-    input {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 8px;
-      background-color: #333;
-      color: #fff;
-      font-size: 16px;
+    p {
+      font-size: 1.1em;
+      max-width: 600px;
+      margin-bottom: 30px;
     }
 
-    button {
-      width: 100%;
-      padding: 12px;
+    .botao {
       background-color: #7f00ff;
-      color: #fff;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      color: white;
+      padding: 15px 25px;
+      margin: 10px;
       font-size: 16px;
-      transition: background 0.3s ease;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      display: inline-block;
     }
 
-    button:hover {
+    .botao:hover {
       background-color: #ffd700;
       color: #000;
-    }
-
-    #mensagem {
-      margin-top: 15px;
-      text-align: center;
-      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Login da Guilda Imperial</h2>
 
-    <form id="loginForm">
-      <input type="email" id="email" placeholder="Email" required />
-      <input type="password" id="password" placeholder="Senha" required />
-      <button type="submit">Entrar</button>
-    </form>
+  <h1>🛡️ Bem-vindo à Guilda Imperial</h1>
+  <p>
+    A Guilda Imperial é formada pelos mais honrados e destemidos guerreiros do Free Fire.  
+    Aqui, lutamos com estratégia, lealdade e união.  
+    Faça parte dessa elite e prove seu valor!
+  </p>
 
-    <p id="mensagem"></p>
-  </div>
+  <a href="login.html" class="botao">Entrar</a>
+  <a href="cadastro.html" class="botao">Criar Conta</a>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyCPRQ5CfKhMZEGbhCey-LrwNExL60SWLxc",
-      authDomain: "imperial-96017.firebaseapp.com",
-      projectId: "imperial-96017",
-      storageBucket: "imperial-96017.firebasestorage.app",
-      messagingSenderId: "862201681377",
-      appId: "1:862201681377:web:8fcf94fa1f018e5e57eea0"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-
-    const form = document.getElementById("loginForm");
-    const mensagem = document.getElementById("mensagem");
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-
-      signInWithEmailAndPassword(auth, email, password)
-        .then(() => {
-          mensagem.style.color = "#00ff99";
-          mensagem.textContent = "✅ Login feito com sucesso!";
-        })
-        .catch((error) => {
-          mensagem.style.color = "#ff5050";
-          mensagem.textContent = "❌ Erro: " + error.message;
-        });
-    });
-  </script>
 </body>
 </html>
