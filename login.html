@@ -2,184 +2,110 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - Guilda Imperial</title>
   <style>
-    :root {
-      --bg-color: #121217;
-      --primary-color: #6c4bd7;
-      --secondary-color: #a192f7;
-      --text-color: #eee;
-      --input-bg: #1f1f2e;
-      --input-border: #3a3a5a;
-      --error-color: #f44336;
-      --success-color: #4caf50;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0D0D0D;
+      color: #EDEDED;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      padding: 15px;
     }
 
     .login-container {
-      background: linear-gradient(145deg, #1c1c2c, #16161f);
-      padding: 40px 35px;
-      border-radius: 12px;
-      box-shadow:
-        4px 4px 10px #0e0e14,
-        -4px -4px 10px #212134;
-      width: 360px;
+      background-color: #1A1A1A;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+      width: 90%;
+      max-width: 400px;
       text-align: center;
     }
 
-    .logo {
-      margin-bottom: 25px;
-    }
-
-    .logo img {
-      width: 120px;
-      height: auto;
-      user-select: none;
-    }
-
-    h2 {
-      margin-bottom: 30px;
-      font-weight: 700;
-      font-size: 1.8rem;
-      color: var(--primary-color);
-      text-shadow: 0 0 8px var(--primary-color);
-    }
-
-    label {
-      display: block;
-      text-align: left;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: var(--secondary-color);
-      font-size: 0.95rem;
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #FFD700;
     }
 
     input[type="email"],
     input[type="password"] {
       width: 100%;
-      padding: 14px 12px;
-      margin-bottom: 24px;
-      border-radius: 8px;
-      border: 1.5px solid var(--input-border);
-      background-color: var(--input-bg);
-      color: var(--text-color);
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
-    }
-    input[type="email"]:focus,
-    input[type="password"]:focus {
-      outline: none;
-      border-color: var(--primary-color);
-      box-shadow: 0 0 8px var(--primary-color);
-      background-color: #2a2a45;
-    }
-
-    input::placeholder {
-      color: #9999bb;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      background-color: #2C2C2C;
+      color: #fff;
+      font-size: 16px;
     }
 
     button {
+      background-color: #4B0082;
+      color: #fff;
+      padding: 12px;
       width: 100%;
-      padding: 15px 0;
-      background-color: var(--primary-color);
       border: none;
       border-radius: 10px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: white;
+      font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 0 12px var(--primary-color);
+      transition: 0.3s;
     }
 
     button:hover {
-      background-color: var(--secondary-color);
-      box-shadow: 0 0 16px var(--secondary-color);
+      background-color: #FFD700;
+      color: #000;
     }
 
-    .message {
-      margin-top: 20px;
-      font-weight: 600;
-      font-size: 1rem;
-      display: none;
+    .error {
+      color: red;
+      margin-top: 10px;
     }
-
-    .message.error {
-      color: var(--error-color);
-    }
-
-    .message.success {
-      color: var(--success-color);
-    }
-
   </style>
 </head>
 <body>
-
   <div class="login-container">
-    <div class="logo">
-      <!-- Troque o caminho abaixo pela logo da Guilda Imperial -->
-      <img src="assets/images/logo-imperial.png" alt="Logo Guilda Imperial" />
-    </div>
-
-    <h2>Login Guilda Imperial</h2>
-
-    <form id="loginForm" autocomplete="off">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required />
-
-      <label for="password">Senha</label>
-      <input type="password" id="password" name="password" placeholder="Digite sua senha" required />
-
-      <button type="submit">Entrar</button>
-    </form>
-
-    <div class="message" id="message"></div>
+    <h2>Login Imperial</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="senha" placeholder="Senha" />
+    <button onclick="fazerLogin()">Entrar</button>
+    <div class="error" id="erroLogin"></div>
   </div>
 
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
   <script>
-    const form = document.getElementById('loginForm');
-    const message = document.getElementById('message');
+    // Sua config Firebase
+    const firebaseConfig = {
+      apiKey: "SUA_API_KEY",
+      authDomain: "SEU_AUTH_DOMAIN",
+      projectId: "SEU_PROJECT_ID",
+    };
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
 
-      const email = form.email.value.trim();
-      const password = form.password.value.trim();
+    function fazerLogin() {
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("senha").value;
+      const erroLogin = document.getElementById("erroLogin");
 
-      // Simulação de autenticação
-      if (email === 'admin@guildaimperial.com' && password === 'imperial123') {
-        message.className = 'message success';
-        message.textContent = 'Login efetuado com sucesso! Redirecionando...';
-        message.style.display = 'block';
-
-        setTimeout(() => {
-          window.location.href = 'bemvindo.html'; // redireciona para a tela de boas-vindas
-        }, 2000);
-
-      } else {
-        message.className = 'message error';
-        message.textContent = 'Email ou senha incorretos.';
-        message.style.display = 'block';
-      }
-    });
+      auth.signInWithEmailAndPassword(email, senha)
+        .then((userCredential) => {
+          // Sucesso
+          window.location.href = "painel.html"; // redireciona pro painel
+        })
+        .catch((error) => {
+          erroLogin.innerText = "Erro ao fazer login: " + error.message;
+        });
+    }
   </script>
-
 </body>
-  </html>
+</html>
