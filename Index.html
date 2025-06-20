@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Guilda Imperial</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #1a1a2e;
+      color: #fff;
+      border-radius: 8px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #e94560;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #e94560;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #d7374f;
+    }
+    #mensagem {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Login da Guilda Imperial</h2>
+  
+  <form id="loginForm">
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Senha" required />
+    <button type="submit">Entrar</button>
+  </form>
+
+  <p id="mensagem"></p>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCPRQ5CfKhMZEGbhCey-LrwNExL60SWLxc",
+      authDomain: "imperial-96017.firebaseapp.com",
+      projectId: "imperial-96017",
+      storageBucket: "imperial-96017.firebasestorage.app",
+      messagingSenderId: "862201681377",
+      appId: "1:862201681377:web:8fcf94fa1f018e5e57eea0"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const form = document.getElementById("loginForm");
+    const mensagem = document.getElementById("mensagem");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          mensagem.style.color = "#4CAF50";
+          mensagem.textContent = "✅ Login feito com sucesso!";
+          // Aqui você pode redirecionar para outra página, por exemplo:
+          // window.location.href = "painel.html";
+        })
+        .catch((error) => {
+          mensagem.style.color = "#ff4d4d";
+          mensagem.textContent = "❌ Erro: " + error.message;
+        });
+    });
+  </script>
+</body>
+</html>
