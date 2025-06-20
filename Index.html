@@ -2,66 +2,128 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guilda Imperial - Início</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guilda Imperial</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #0d0d0d;
       color: #f0f0f0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       text-align: center;
       padding: 20px;
     }
 
-    h1 {
+    header {
+      background-color: #220033;
+      padding: 30px 20px;
+      box-shadow: 0 0 10px #7f00ff;
+    }
+
+    header h1 {
       color: #ffd700;
-      font-size: 2em;
-      margin-bottom: 10px;
+      font-size: 2.5em;
+      margin: 0;
     }
 
-    p {
+    .descricao {
+      max-width: 700px;
+      margin: 30px auto;
       font-size: 1.1em;
-      max-width: 600px;
-      margin-bottom: 30px;
     }
 
-    .botao {
+    form {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(127, 0, 255, 0.3);
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      background-color: #333;
+      color: white;
+    }
+
+    button {
       background-color: #7f00ff;
       color: white;
-      padding: 15px 25px;
-      margin: 10px;
-      font-size: 16px;
       border: none;
-      border-radius: 10px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s;
-      text-decoration: none;
-      display: inline-block;
+      transition: 0.3s;
     }
 
-    .botao:hover {
+    button:hover {
       background-color: #ffd700;
       color: #000;
+    }
+
+    .login-link {
+      margin-top: 30px;
+    }
+
+    .login-link a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <h1>🛡️ Bem-vindo à Guilda Imperial</h1>
-  <p>
-    A Guilda Imperial é formada pelos mais honrados e destemidos guerreiros do Free Fire.  
-    Aqui, lutamos com estratégia, lealdade e união.  
-    Faça parte dessa elite e prove seu valor!
-  </p>
+  <header>
+    <h1>💜 Guilda Imperial</h1>
+  </header>
 
-  <a href="login.html" class="botao">Entrar</a>
-  <a href="cadastro.html" class="botao">Criar Conta</a>
+  <div class="descricao">
+    <p>
+      Seja bem-vindo(a) à Guilda Imperial!  
+      Somos uma equipe de elite no Free Fire, dedicada à guerra de guildas, honra semanal e competitivo.  
+      Se você quer fazer parte da nossa legião, preencha o formulário abaixo!
+    </p>
+  </div>
+
+  <form action="https://formsubmit.co/pedrocosta776622@gmail.com" method="POST">
+    <input type="text" name="nome" placeholder="Seu nome no jogo" required />
+    <input type="text" name="id" placeholder="Seu ID do Free Fire" required />
+    <input type="number" name="idade" placeholder="Idade" required />
+    <input type="text" name="whatsapp" placeholder="Número do WhatsApp" required />
+    <input type="text" name="tempo" placeholder="Há quanto tempo joga?" required />
+    
+    <select name="competitivo" required>
+      <option value="">Joga competitivo?</option>
+      <option value="Sim">Sim</option>
+      <option value="Não">Não</option>
+    </select>
+    
+    <textarea name="disponibilidade" placeholder="Dias e horários disponíveis" required></textarea>
+    <textarea name="mensagem" placeholder="Mensagem extra (opcional)"></textarea>
+
+    <!-- Proteções extras -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_autoresponse" value="Recebemos seu formulário. Em breve um ADM entrará em contato.">
+    
+    <button type="submit">Enviar recrutamento</button>
+  </form>
+
+  <div class="login-link">
+    <p>Já é da guilda? <a href="login.html">Acesse sua conta</a></p>
+  </div>
 
 </body>
 </html>
