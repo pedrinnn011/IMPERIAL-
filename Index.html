@@ -2,128 +2,191 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Guilda Imperial</title>
+  <title>Imperial Gamer</title>
   <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0d0d0d;
-      color: #f0f0f0;
-      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #eee;
       padding: 20px;
+      text-align: center;
     }
-
-    header {
-      background-color: #220033;
-      padding: 30px 20px;
-      box-shadow: 0 0 10px #7f00ff;
+    nav {
+      background-color: #1f1f1f;
+      padding: 10px 20px;
+      margin-bottom: 30px;
+      text-align: left;
     }
-
-    header h1 {
-      color: #ffd700;
-      font-size: 2.5em;
-      margin: 0;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
     }
-
-    .descricao {
-      max-width: 700px;
-      margin: 30px auto;
-      font-size: 1.1em;
+    nav ul li a {
+      color: #eee;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ff4040;
+    }
+    img.logo {
+      max-width: 180px;
+      margin-bottom: 10px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #ff4040;
+    }
+    section {
+      margin-bottom: 40px;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h2 {
+      margin-bottom: 15px;
+      color: #ff7070;
+    }
+    ul {
+      list-style: inside disc;
+      margin-left: 20px;
+    }
+    footer {
+      border-top: 1px solid #333;
+      padding-top: 15px;
+      font-size: 0.9em;
+      color: #aaa;
+      text-align: center;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     form {
-      background-color: #1a1a1a;
+      background-color: #1f1f1f;
       padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(127, 0, 255, 0.3);
-      max-width: 600px;
-      margin: 0 auto 40px auto;
+      border-radius: 5px;
+      max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
     }
-
-    input, textarea, select {
+    form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #ff7070;
+    }
+    form input[type="text"],
+    form input[type="number"],
+    form textarea {
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
+      padding: 10px;
+      margin-bottom: 15px;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 5px;
       background-color: #333;
-      color: white;
+      color: #eee;
+      font-size: 1em;
+      resize: vertical;
     }
-
-    button {
-      background-color: #7f00ff;
+    form textarea {
+      min-height: 90px;
+    }
+    form button {
+      background-color: #ff4040;
       color: white;
-      border: none;
       padding: 12px 25px;
-      font-size: 16px;
-      border-radius: 8px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background-color 0.3s;
+    }
+    form button:hover {
+      background-color: #e63737;
     }
 
-    button:hover {
-      background-color: #ffd700;
-      color: #000;
+    .whatsapp-link {
+      margin-top: -10px;
+      margin-bottom: 40px;
+      font-size: 0.95em;
+      max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
     }
-
-    .login-link {
-      margin-top: 30px;
-    }
-
-    .login-link a {
-      color: #ffd700;
+    .whatsapp-link a {
+      color: #ff4040;
       text-decoration: none;
       font-weight: bold;
     }
-
-    .login-link a:hover {
+    .whatsapp-link a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>💜 Guilda Imperial</h1>
-  </header>
+  <nav>
+    <ul>
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Sobre</a></li>
+      <li><a href="#">Recrutamento</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+  </nav>
 
-  <div class="descricao">
-    <p>
-      Seja bem-vindo(a) à Guilda Imperial!  
-      Somos uma equipe de elite no Free Fire, dedicada à guerra de guildas, honra semanal e competitivo.  
-      Se você quer fazer parte da nossa legião, preencha o formulário abaixo!
+  <img src="https://i.postimg.cc/6pqvQ8XY/logo-imperial.png" alt="Logo Imperial Gamer" class="logo" />
+
+  <h1>Imperial Gamer</h1>
+
+  <section>
+    <h2>Líderes Gerais (CEOs)</h2>
+    <ul>
+      <li>IMP Zangada</li>
+      <li>IMP Afrodite</li>
+      <li>IMP Ravena</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Formulário de Recrutamento</h2>
+    <form action="#" method="post">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" required />
+
+      <label for="nick">Nick</label>
+      <input type="text" id="nick" name="nick" required />
+
+      <label for="idade">Idade</label>
+      <input type="number" id="idade" name="idade" min="10" max="100" required />
+
+      <label for="whatsapp">WhatsApp</label>
+      <input type="text" id="whatsapp" name="whatsapp" placeholder="(XX) 9XXXX-XXXX" required />
+
+      <label for="motivo">Por que quer entrar?</label>
+      <textarea id="motivo" name="motivo" placeholder="Conte um pouco sobre você..." required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <p class="whatsapp-link">
+      Se preferir, você também pode entrar no nosso grupo oficial no WhatsApp e fazer seu recrutamento por lá: 
+      <a href="https://chat.whatsapp.com/IUK3th0Z3DvF6grHzjU6cS" target="_blank" rel="noopener noreferrer">Grupo Imperial Gamer</a>
     </p>
-  </div>
+  </section>
 
-  <form action="https://formsubmit.co/pedrocosta776622@gmail.com" method="POST">
-    <input type="text" name="nome" placeholder="Seu nome no jogo" required />
-    <input type="text" name="id" placeholder="Seu ID do Free Fire" required />
-    <input type="number" name="idade" placeholder="Idade" required />
-    <input type="text" name="whatsapp" placeholder="Número do WhatsApp" required />
-    <input type="text" name="tempo" placeholder="Há quanto tempo joga?" required />
-    
-    <select name="competitivo" required>
-      <option value="">Joga competitivo?</option>
-      <option value="Sim">Sim</option>
-      <option value="Não">Não</option>
-    </select>
-    
-    <textarea name="disponibilidade" placeholder="Dias e horários disponíveis" required></textarea>
-    <textarea name="mensagem" placeholder="Mensagem extra (opcional)"></textarea>
-
-    <!-- Proteções extras -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_autoresponse" value="Recebemos seu formulário. Em breve um ADM entrará em contato.">
-    
-    <button type="submit">Enviar recrutamento</button>
-  </form>
-
-  <div class="login-link">
-    <p>Já é da guilda? <a href="login.html">Acesse sua conta</a></p>
-  </div>
+  <footer>
+    <p>Redes sociais: Instagram - 
+      <a href="https://www.instagram.com/imperial_ofcimp" target="_blank" rel="noopener noreferrer" style="color:#ff4040; text-decoration:none;">@imperial_ofcimp</a>
+    </p>
+  </footer>
 
 </body>
 </html>
