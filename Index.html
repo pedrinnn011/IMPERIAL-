@@ -1,152 +1,224 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <title>Imperial Gamer</title>
-  <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: #eee;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      background-color: #1f1f1f;
-      padding: 10px 20px;
-      margin-bottom: 30px;
-      text-align: left;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Imperial Gamer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121217;
+    color: #ddd;
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #1b1a27dd;
+    backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid #50327f;
+    z-index: 1000;
+  }
+
+  nav {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+  }
+
+  nav ul li a {
+    color: #b8a8f6;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    background-color: #6f5de7;
+    color: #fff;
+  }
+
+  .logo-container {
+    margin-top: 70px; /* espaço para header fixo */
+    text-align: center;
+    padding: 25px 0 40px;
+  }
+
+  .logo-container img {
+    max-width: 160px;
+    height: auto;
+    filter: drop-shadow(0 0 6px #6f5de7);
+  }
+
+  main {
+    max-width: 900px;
+    margin: auto;
+    padding: 0 20px 60px;
+  }
+
+  section {
+    background: #1f1e2e;
+    padding: 30px 35px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #6f5de766;
+  }
+
+  h1, h2 {
+    color: #b8a8f6;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style: inside disc;
+    margin-left: 20px;
+  }
+
+  form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #a393e7;
+  }
+
+  form input[type="text"],
+  form input[type="number"],
+  form textarea {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: none;
+    background: #302f47;
+    color: #ddd;
+    font-size: 1rem;
+    resize: vertical;
+    transition: box-shadow 0.3s ease;
+  }
+
+  form input[type="text"]:focus,
+  form input[type="number"]:focus,
+  form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 8px #6f5de7;
+  }
+
+  form textarea {
+    min-height: 100px;
+  }
+
+  form button {
+    background: #6f5de7;
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  form button:hover {
+    background: #5848b5;
+  }
+
+  .whatsapp-link {
+    margin-top: -10px;
+    margin-bottom: 40px;
+    font-size: 0.95rem;
+    text-align: center;
+    color: #b8a8f6;
+  }
+
+  .whatsapp-link a {
+    color: #6f5de7;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .whatsapp-link a:hover {
+    text-decoration: underline;
+  }
+
+  footer {
+    text-align: center;
+    color: #7773a9;
+    font-size: 0.9rem;
+    padding: 20px 0;
+  }
+
+  footer a {
+    color: #6f5de7;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsivo */
+  @media (max-width: 600px) {
     nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    nav ul li a {
-      color: #eee;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
+
+    main {
+      padding: 0 15px 40px;
     }
-    nav ul li a:hover {
-      color: #ff4040;
-    }
-    img.logo {
-      max-width: 180px;
-      margin-bottom: 10px;
-    }
-    h1 {
-      margin-bottom: 20px;
-      color: #ff4040;
-    }
+
     section {
-      margin-bottom: 40px;
-      text-align: left;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      padding: 20px 20px;
+      margin-bottom: 30px;
     }
-    h2 {
-      margin-bottom: 15px;
-      color: #ff7070;
-    }
-    ul {
-      list-style: inside disc;
-      margin-left: 20px;
-    }
-    footer {
-      border-top: 1px solid #333;
-      padding-top: 15px;
-      font-size: 0.9em;
-      color: #aaa;
-      text-align: center;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    form {
-      background-color: #1f1f1f;
-      padding: 20px;
-      border-radius: 5px;
-      max-width: 450px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    form label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: bold;
-      color: #ff7070;
-    }
-    form input[type="text"],
-    form input[type="number"],
-    form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: none;
-      border-radius: 5px;
-      background-color: #333;
-      color: #eee;
-      font-size: 1em;
-      resize: vertical;
-    }
-    form textarea {
-      min-height: 90px;
-    }
-    form button {
-      background-color: #ff4040;
-      color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    form button:hover {
-      background-color: #e63737;
-    }
-
-    .whatsapp-link {
-      margin-top: -10px;
-      margin-bottom: 40px;
-      font-size: 0.95em;
-      max-width: 450px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-    .whatsapp-link a {
-      color: #ff4040;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .whatsapp-link a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
+<header>
   <nav>
-    <ul>
-      <li><a href="#">Início</a></li>
-      <li><a href="#">Sobre</a></li>
-      <li><a href="#">Recrutamento</a></li>
-      <li><a href="#">Contato</a></li>
-    </ul>
+    <div class="logo-nav">
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Recrutamento</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </div>
   </nav>
+</header>
 
-  <img src="https://i.postimg.cc/6pqvQ8XY/logo-imperial.png" alt="Logo Imperial Gamer" class="logo" />
+<div class="logo-container">
+  <img src="https://i.postimg.cc/6pqvQ8XY/logo-imperial.png" alt="Logo Imperial Gamer" />
+</div>
 
-  <h1>Imperial Gamer</h1>
-
+<main>
   <section>
+    <h1>Imperial Gamer</h1>
     <h2>Líderes Gerais (CEOs)</h2>
     <ul>
       <li>IMP Zangada</li>
@@ -181,12 +253,13 @@
       <a href="https://chat.whatsapp.com/IUK3th0Z3DvF6grHzjU6cS" target="_blank" rel="noopener noreferrer">Grupo Imperial Gamer</a>
     </p>
   </section>
+</main>
 
-  <footer>
-    <p>Redes sociais: Instagram - 
-      <a href="https://www.instagram.com/imperial_ofcimp" target="_blank" rel="noopener noreferrer" style="color:#ff4040; text-decoration:none;">@imperial_ofcimp</a>
-    </p>
-  </footer>
+<footer>
+  <p>Redes sociais: Instagram - 
+    <a href="https://www.instagram.com/imperial_ofcimp" target="_blank" rel="noopener noreferrer">@imperial_ofcimp</a>
+  </p>
+</footer>
 
 </body>
-</html>
+  </html>
